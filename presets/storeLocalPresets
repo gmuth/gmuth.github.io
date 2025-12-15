@@ -1,0 +1,19 @@
+#!/bin/bash
+
+SOUNDTOUCH_API="http://soundtouch.local:8090"
+
+for PRESET_ID in {1..6}
+do
+  echo "Store local preset ${PRESET_ID}..."
+  PRESET_XML="
+  <preset id=\"${PRESET_ID}\">
+    <ContentItem source=\"LOCAL_INTERNET_RADIO\" type=\"stationurl\" location=\"http://0:8080/presets/${PRESET_ID}.json\">
+      <itemName>loading local preset ${PRESET_ID}.json</itemName>
+    </ContentItem>
+  </preset>"
+  echo $PRESET_XML | curl -sfd @- $SOUNDTOUCH_API/storePreset >/dev/null || echo "Failed to store local preset ${PRESET_ID}"
+done
+
+curl -s $SOUNDTOUCH_API/presets | xmllint --format -
+
+# ssh -oHostKeyAlgorithms=+ssh-rsa root@soundtouch.local /opt/Bose/html/presets/storeAllPresets

@@ -3,11 +3,11 @@
 SOUNDTOUCH_API="http://soundtouch.local:8090"
 PRESET_ID=$1
 
-echo "Store preset ${PRESET_ID}..."
+echo "Store github preset ${PRESET_ID}..."
 PRESET_XML="
 <preset id=\"${PRESET_ID}\">
   <ContentItem source=\"LOCAL_INTERNET_RADIO\" type=\"stationurl\" location=\"https://gmuth.github.io/presets/${PRESET_ID}.json\">
     <itemName>loading github preset ${PRESET_ID}.json</itemName>
   </ContentItem>
 </preset>"
-echo $PRESET_XML | curl -sfd @- $SOUNDTOUCH_API/storePreset | xmllint --format - || echo "Failed to store preset ${PRESET_ID}"
+echo $PRESET_XML | curl -sfd @- $SOUNDTOUCH_API/storePreset | xmllint --format - || echo "Failed to github store preset ${PRESET_ID}"

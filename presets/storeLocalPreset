@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SOUNDTOUCH_API="http://soundtouch.local:8090"
+PRESET_ID=$1
+
+echo "Store local preset ${PRESET_ID}..."
+PRESET_XML="
+<preset id=\"${PRESET_ID}\">
+  <ContentItem source=\"LOCAL_INTERNET_RADIO\" type=\"stationurl\" location=\"http://0:8080/presets/${PRESET_ID}.json\">
+    <itemName>loading github preset ${PRESET_ID}.json</itemName>
+  </ContentItem>
+</preset>"
+echo $PRESET_XML | curl -sfd @- $SOUNDTOUCH_API/storePreset | xmllint --format - || echo "Failed to store local preset ${PRESET_ID}"

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+SOUNDTOUCH_HOST="soundtouch.local"
+tar -czf - *.json |\
+ssh -oHostKeyAlgorithms=+ssh-rsa root@${SOUNDTOUCH_HOST} 'mkdir -p /opt/Bose/html/presets && tar -xzf - -C /opt/Bose/html/presets'
