@@ -1,0 +1,10 @@
+{
+  "audio": {
+    "hasPlaylist": false,
+    "isRealtime": true,
+    "streamUrl": ""
+  },
+  "imageUrl": "",
+  "name": "",
+  "streamType": "liveRadio"
+}

@@ -1,0 +1,10 @@
+{
+  "audio": {
+    "hasPlaylist": false,
+    "isRealtime": true,
+    "streamUrl": "https://streams.radiobob.de/bob-national/mp3-192/streams.radiobob.de"
+  },
+  "imageUrl": "",
+  "name": "Radio BOB",
+  "streamType": "liveRadio"
+}

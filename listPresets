@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl -s soundtouch.local:8090/presets | xmllint --format -
